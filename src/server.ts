@@ -27,4 +27,8 @@ app
       JSON.parse(await c.body())
     ),
   }))
+  .delete("/:id", async (c) => ({
+    status: "success",
+    data: DataTS.getInstance().deleteOneSimpleData(c.params.id),
+  }))
   .start({ port });
