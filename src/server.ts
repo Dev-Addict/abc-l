@@ -20,4 +20,11 @@ app
     status: "success",
     data: DataTS.getInstance().getOneSimpleData(c.params.id),
   }))
+  .patch("/:id", async (c) => ({
+    status: "success",
+    data: DataTS.getInstance().updateOneSimpleData(
+      c.params.id,
+      JSON.parse(await c.body())
+    ),
+  }))
   .start({ port });
